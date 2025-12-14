@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIPO Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <button class="toggle-btn" id="toggle-btn">☰</button>
+
+    <!-- Sidebar -->
+    <!-- Toggle Button -->
+
+
+<!-- Sidebar -->
+    <div class="sidebar collapsed" id="sidebar">
+        <h2>Incense Menu</h2>
+
+
+        <div class="collapsed-icons">
+            <div class="icon" id="stickIcon" title="Incense Stick">┃</div>
+            <div class="icon" id="dhoopIcon" title="Incense Dhoop">🔺</div>
+            <div class="icon" id="cupIcon" title="Incense Cup">⚫</div>
+        </div>
+
+        <!-- Popup Container -->
+        <div id="popup" class="popup hidden">
+            <div class="popup-content">
+                <h3 id="popup-title"></h3>
+                <ul id="popup-list"></ul>
+                <button id="popup-close">✖</button>
+            </div>
+        </div>
+
+
+
+
+        <!-- Expanded Categories -->
+        <div class="expanded-content">
+            <div class="category">
+                <button class="accordion">Incense Stick</button>
+                <div class="panel">
+                    <p class="item" data-type="stick" data-name="Sandalwood"
+                      data-img="{{ url_for('static', filename='images/sandalwood.jpg') }}"
+                      data-desc="Warm and woody sandalwood incense sticks, calming and grounding.">🌿 Sandalwood Stick</p>
+                    <p class="item" data-type="stick" data-name="Rose"
+                      data-img="{{ url_for('static', filename='images/rose.jpg') }}"
+                      data-desc="Romantic rose incense sticks bringing love and freshness.">🌹 Rose Stick</p>
+                    <p class="item" data-type="stick" data-name="Lavender"
+                      data-img="{{ url_for('static', filename='images/lavender.jpg') }}"
+                      data-desc="Relaxing lavender incense sticks for peace and clarity.">💜 Lavender Stick</p>
+                </div>
+            </div>
+
+            <div class="category">
+                <button class="accordion">Incense Dhoop</button>
+                <div class="panel">
+                    <p class="item" data-type="dhoop" data-name="Sandalwood"
+                      data-img="{{ url_for('static', filename='images/sandalwood.jpg') }}"
+                      data-desc="Sandalwood dhoop with a rich and long-lasting fragrance.">🌿 Sandalwood Dhoop</p>
+                    <p class="item" data-type="dhoop" data-name="Rose"
+                      data-img="{{ url_for('static', filename='images/rose.jpg') }}"
+                      data-desc="Rose dhoop cones for devotion and serenity.">🌹 Rose Dhoop</p>
+                    <p class="item" data-type="dhoop" data-name="Lavender"
+                      data-img="{{ url_for('static', filename='images/lavender.jpg') }}"
+                      data-desc="Lavender dhoop for gentle evening relaxation.">💜 Lavender Dhoop</p>
+                </div>
+            </div>
+
+            <div class="category">
+                <button class="accordion">Incense Cup</button>
+                <div class="panel">
+                    <p class="item" data-type="cup" data-name="Sandalwood"
+                      data-img="{{ url_for('static', filename='images/sandalwood.jpg') }}"
+                      data-desc="Sandalwood incense cups fill your space with divine aroma.">🌿 Sandalwood Cup</p>
+                    <p class="item" data-type="cup" data-name="Rose"
+                      data-img="{{ url_for('static', filename='images/rose.jpg') }}"
+                      data-desc="Rose incense cups bring freshness and love.">🌹 Rose Cup</p>
+                    <p class="item" data-type="cup" data-name="Lavender"
+                      data-img="{{ url_for('static', filename='images/lavender.jpg') }}"
+                      data-desc="Lavender cups help ease your mind and calm your spirit.">💜 Lavender Cup</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Main content -->
+    <div class="main-content" id="main-content">
+        <header>
+            <h1>🌸 VIPO</h1>
+            <p>Pure Incense & Dhoop</p>
+        </header>
+
+        <div class="welcome">
+            <h2>Welcome, {{ username }} 🌿</h2>
+            <p>May your day be filled with peace and fragrance.</p>
+            <form action="/logout" method="post">
+                <button id="logout-btn" class="logout-btn">Logout</button>
+            </form>
+        </div>
+
+        <!-- Persistent main display area -->
+        <div id="main-display"></div>
+
+        <!-- Display area for selected incense -->
+        <div class="display-area" id="display-area">
+            <p>Select an incense from the left menu to see details.</p>
+        </div>
+    </div>
+
+<script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
+
+
+
+

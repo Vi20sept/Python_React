@@ -1,0 +1,192 @@
+<!-- working sign up page
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+</head>
+<body>
+  <h2>Sign Up</h2>
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul style="color: red;">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+
+  <form method="post">
+    Username: <input name="username" required><br>
+    Email: <input type="email" name="email" required><br>
+    Password: <input type="password" name="password" required><br>
+    <button type="submit">Sign Up</button>
+  </form>
+  <a href="/login">Back to Login</a>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIPO - Sign Up</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f8f3e7, #e7d3b6);
+      margin: 0;
+      padding: 0;
+      color: #4a2e05;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 0 10px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #6b4226;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #8b5a2b;
+      margin-top: 0;
+    }
+
+    .image-container {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .image-container img {
+      width: 120px;
+      height: auto;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    }
+
+    .signup-container {
+      background-color: white;
+      width: 380px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    .signup-container h2 {
+      text-align: center;
+      color: #5c3b1e;
+      margin-bottom: 20px;
+    }
+
+    .signup-container form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .signup-container input {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #c6a77b;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .signup-container button {
+      background-color: #a0522d;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .signup-container button:hover {
+      background-color: #8b4513;
+    }
+
+    .messages {
+      color: green;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .login-link a {
+      color: #8b5a2b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      color: #6b4226;
+      margin-top: 50px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌸 VIPO</h1>
+    <p>Pure Incense & Dhoop</p>
+  </header>
+
+  <div class="image-container">
+    <!-- <img src="https://images.unsplash.com/photo-1616697091397-5e5b5792a60a" alt="Incense Sticks"> -->
+     <img src="{{ url_for('static', filename='images/incense.jpg') }}" alt="Incense Sticks">
+  </div>
+
+  <div class="signup-container">
+    <h2>Create an Account</h2>
+
+    <div class="messages">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% endwith %}
+    </div>
+
+    <form method="post">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <div class="login-link">
+      <p>Already have an account? <a href="/login">Login</a></p>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 VIPO | Spreading Peace Through Fragrance 🌿
+  </footer>
+</body>
+</html>
+

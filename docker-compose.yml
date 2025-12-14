@@ -1,0 +1,65 @@
+# #for local python_app
+# version: "3"
+# services:
+#   backend:
+#     build: ./backend
+#     container_name: backcon
+#     ports:
+#       - "5000:5000"
+#   frontend:
+#     build: ./frontend
+#     depends_on:
+#       - backend
+#     ports:
+#       - "80:80"
+
+
+# #for pipeline
+# version: '3.8'
+
+# services:
+#   frontend:
+#     image: vis3021/frontend:latest
+#     ports:
+#       - "80:80"
+#     depends_on:
+#       - backend
+
+#   backend:
+#     image: vis3021/backend:latest
+#     expose:
+#       - "5000"
+
+
+
+
+version: "3.8"
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: backend
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+    networks:
+      - appnet
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "3000:80"     # maps nginx port 80 to host 3000 (choose port you like)
+    environment:
+      - REACT_APP_API_URL=http://backend:5000
+    depends_on:
+      - backend
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    driver: bridge

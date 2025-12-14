@@ -1,0 +1,262 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom right, #f5ecd9, #f2dfbf);
+    overflow-x: hidden;
+}
+
+.toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #b56b2d;
+    color: white;
+    border: none;
+    font-size: 22px;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    left: -250px;
+    top: 0;
+    background-color: #fffaf1;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    transition: 0.3s;
+    padding: 20px;
+    z-index: 900;
+}
+
+
+/* Collapsed Sidebar State */
+.sidebar.collapsed {
+    width: 70px;
+    left: 0;
+    padding: 10px;
+}
+
+.sidebar.collapsed h2,
+.sidebar.collapsed .expanded-content {
+    display: none;
+}
+
+.collapsed-icons {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    gap: 25px;
+}
+
+.sidebar.collapsed .collapsed-icons {
+    display: flex;
+}
+
+.icon {
+    font-size: 28px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+}
+
+/* Expanded Sidebar */
+.sidebar.active {
+    left: 0;
+    width: 250px;
+}
+
+.main-content {
+    transition: margin-left 0.3s;
+}
+
+
+
+.incense-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.incense-card {
+    width: 250px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    background-color: white;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.incense-card:hover {
+    transform: translateY(-5px);
+}
+
+.incense-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar h2 {
+    color: #8b4513;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.accordion {
+    background-color: #f4e4cb;
+    color: #5c3d0b;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+
+.accordion:hover {
+    background-color: #f0d9b5;
+}
+
+.panel {
+    display: none;
+    padding-left: 20px;
+    background-color: #fdf7ed;
+    border-radius: 6px;
+    margin-top: 5px;
+}
+
+.panel p {
+    margin: 8px 0;
+    color: #7a4f1d;
+    cursor: pointer;
+}
+
+.main-content {
+    margin-left: 80px;
+    padding: 40px;
+    text-align: center;
+    transition: margin-left 0.3s;
+}
+
+.logout-btn {
+    background-color: #b56b2d;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.logout-btn:hover {
+    background-color: #8b4513;
+}
+
+.display-area {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #fffaf1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.display-area img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+
+
+/* Popup for incense category selection */
+.popup {
+  position: fixed;
+  /* left: 80px;
+  top: 10%;
+  transform: translateY(-50%); */
+  background: rgba(200, 200, 200, 0.95);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  padding: 15px 25px;
+  z-index: 1000;
+  min-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-content h3 {
+  margin-top: 0;
+  text-align: center;
+  color: #333;
+}
+
+.popup-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.popup-content ul li {
+  margin: 6px 0;
+  padding: 6px;
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.popup-content ul li:hover {
+  background-color: #ddd;
+}
+
+#popup-close {
+  border: none;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+
+
+ /* Fix large image size in single-item view */
+
+#main-display img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 12px;
+    display: block;
+    margin: 10px auto;
+}
+
+
